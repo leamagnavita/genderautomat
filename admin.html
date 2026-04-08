@@ -6,8 +6,7 @@
     <title>Genderautomat</title>
 </head>
 <body>
-
-<!--Header-->
+    <!--Header-->
     <header>
         <img src="platzhalterlogo" alt="Logo">
         <p>Titel</p>
@@ -19,18 +18,42 @@
         </search>
         <nav>
             <ul>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="artikel.html">Artikel</a></li>
                 <li><a href="support.html">Support</a></li>
                 <li><a href="" aria-current="page">Admin</a></li>
             </ul>
         </nav>
+        </header>
 
 <nav> <!--Sidebar nav-->
     <ul>
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="artikel.html">Artikel</a></li>
             <ul>
-                <li></li><a href="neuerartikel.html">neu</a></li>
+                <li><a href="neuerartikel.html">neu</a></li>
             </ul>
     </ul>
 </nav>
+<form>
+    <label for="t1">Titel</label>
+    <input type="text" id="t1" name="titel">
+
+    <label for="k1">Kategorie1</label>
+    <input type="radio" id="k1" name="radiob">
+
+    <label for="k2">Kategorie2</label>
+    <input type="radio" id="k2" name="radiob">
+
+    <label for="k3">Kategorie3</label>
+    <input type="radio" id="k3" name="radiob">
+
+    <label for="kurzb">Kurzbeschreibung</label>
+    <textarea id="kurzb"></textarea>
+
+    <label for="artikel">Artikel</label>
+    <textarea id="artikel"></textarea>
+</form>
+
+</body>
+</html>
