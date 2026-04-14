@@ -1,59 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Genderautomat</title>
-</head>
-<body>
-    <header>
-        <img src="platzhalterlogo" alt="Logo">
-        <p>Titel</p>
-        <search>
-            <form action="./search/">
-                <input type="search" placeholder="suchen">
-                <button type="submit">suchen</button>
-            </form>
-        </search>
-        <nav>
-            <ul>
-                <li><a href="" aria-current="page">Home</a></li>
-                <li><a href="artikel.html">Artikel</a></li>
-                <li><a href="support.html">Support</a></li>
-                <li><a href="admin.html">Admin</a></li>
-            </ul>
-        </nav>
-        <nav>
-            <ul>
-                <li><a href="#">Seite 1</a></li>
-                <li><a href="#">Seite 2</a></li>
-                <li><a href="#">Seite 3</a></li>
-                <li><a href="#">Seite 4</a></li>
-                <li><a href="#">Seite 5</a></li>
-            </ul>
-        </nav>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+  </head>
+
+  <body class="m-8">
+    <header class="flex flex-row *:pr-8">
+      <img src="platzhalterlogo" alt="Logo" />
+      <p>Titel</p>
+      <search class="border">
+        <form action="./search/">
+          <input class="outline-none" type="search" placeholder="suchen" />
+          <button class="material-symbols-outlined" type="submit">search</button>
+        </form>
+      </search>
+      <nav>
+        <ul class="flex flex-row *:px-4">
+          <li><a href="" aria-current="page">Home</a></li>
+          <li><a href="artikel.html">Artikel</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="admin.html">Admin</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <section>
-        <h2>Entdecke unsere Dokumentationen</h2>
-    </section>
+    <div class="flex flex-row py-16">
+      <nav>
+        <ul class="*:py-4">
+          <li><a href="#">Seite 1</a></li>
+          <li><a href="#">Seite 2</a></li>
+          <li><a href="#">Seite 3</a></li>
+          <li><a href="#">Seite 4</a></li>
+          <li><a href="#">Seite 5</a></li>
+        </ul>
+      </nav>
 
-    <article>
-        <h3>Titel des Artikels</h3>
-        <p>Kurzbeschreibung</p>
+      <article class="pt-4 px-32">
+        <section>
+          <h2 class="text-4xl">Entdecke Unsere Dokumentationen</h2>
+        </section>
+
+    <article class="flex *:pr-8 py-4">
+        <section>
+          <h3>Titel des Artikels</h3>
+          <p>Kurzbeschreibung</p>
+        </section>
+
+        <section>
+          <h3>Titel des Artikels</h3>
+          <p>Kurzbeschreibung</p>
+        </section>
+
+        <section>
+          <h3>Titel des Artikels</h3>
+          <p>Kurzbeschreibung</p>
+        </section>
     </article>
-
-    <article>
-        <h3>Titel des Artikels</h3>
-        <p>Kurzbeschreibung</p>
-    </article>
-
-    <article>
-        <h3>Titel des Artikels</h3>
-        <p>Kurzbeschreibung</p>
-    </article>
-
-</body>
+      </article>
+    </div>
+  </body>
 </html>
