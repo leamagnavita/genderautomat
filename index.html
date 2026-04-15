@@ -11,60 +11,71 @@
     />
   </head>
 
-  <body class="m-4">
-    <header class="flex flex-row *:pr-4 justify-between">
-      <img src="platzhalterlogo" alt="Logo" />
-      <p>Titel</p>
-      <search class="border rounded-2xl w-60 h-8">
-        <form action="./search/">
-          <input class="outline-none align-text-bottom pl-3 pb-1.5" type="search" placeholder="suchen"/>
-          <button class="material-symbols-outlined pt-1 ml-1" type="submit">search
-          </button>
-        </form>
-      </search>
-      <nav>
-        <ul class="flex *:px-4 *:hover:underline">
-          <li><a href="" aria-current="page">Home</a></li>
-          <li><a href="artikel.html">Artikel</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="admin.html">Admin</a></li>
-        </ul>
-      </nav>
-    </header>
+  <body>
+    <article class="flex flex-col gap-y-10">
+      <article>
+        <header class="flex *:pr-4 justify-between m-4">
+          <img src="platzhalterlogo" alt="Logo" />
+          <p>Titel</p>
+          <search class="border rounded-2xl w-60 h-8">
+            <form action="./search/">
+              <input
+                class="outline-none align-text-bottom pl-3 pb-1.5"
+                type="search"
+                placeholder="suchen"
+              />
+              <button class="material-symbols-outlined pt-1 ml-1" type="submit">
+                search
+              </button>
+            </form>
+          </search>
 
-    <div class="flex flex-row py-16">
-      <nav>
-        <ul class="*:py-4">
-          <li><a href="#">Seite 1</a></li>
-          <li><a href="#">Seite 2</a></li>
-          <li><a href="#">Seite 3</a></li>
-          <li><a href="#">Seite 4</a></li>
-          <li><a href="#">Seite 5</a></li>
-        </ul>
-      </nav>
+          <nav>
+            <ul class="flex *:px-4 *:hover:underline">
+              <li><a href="" aria-current="page" class="underline">Home</a></li>
+              <li><a href="artikel.html">Artikel</a></li>
+              <li><a href="support.html">Support</a></li>
+              <li><a href="admin.html">Admin</a></li>
+            </ul>
+          </nav>
+        </header>
+        <hr/>
+      </article>
 
-      <article class="*:px-32">
-        <section class="pt-4">
-          <h2 class="text-4xl">Entdecke Unsere Dokumentationen</h2>
-        </section>
+      <article class="flex">
+        <nav>
+          <ul class="*:py-4">
+            <li><a href="#">Seite 1</a></li>
+            <li><a href="#">Seite 2</a></li>
+            <li><a href="#">Seite 3</a></li>
+            <li><a href="#">Seite 4</a></li>
+            <li><a href="#">Seite 5</a></li>
+          </ul>
+        </nav>
 
-        <article class="flex *:pr-8 py-4">
-          <section>
-            <h3>Titel des Artikels</h3>
-            <p>Kurzbeschreibung</p>
+        <article class="*:px-32">
+          <section class="pt-4">
+            <h2 class="text-4xl">Entdecke Unsere Dokumentationen</h2>
           </section>
 
-          <section>
-            <h3>Titel des Artikels</h3>
-            <p>Kurzbeschreibung</p>
-          </section>
+          <article class="flex *:pr-8 py-4">
+            <section>
+              <h3>Titel des Artikels</h3>
+              <p>Kurzbeschreibung</p>
+            </section>
 
-          <section>
-            <h3>Titel des Artikels</h3>
-            <p>Kurzbeschreibung</p>
-          </section>
+            <section>
+              <h3>Titel des Artikels</h3>
+              <p>Kurzbeschreibung</p>
+            </section>
+
+            <section>
+              <h3>Titel des Artikels</h3>
+              <p>Kurzbeschreibung</p>
+            </section>
+          </article>
         </article>
       </article>
-    </div>
+    </article>
   </body>
 </html>
