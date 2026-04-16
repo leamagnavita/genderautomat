@@ -1,83 +1,106 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Genderautomat</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
-    />
-  </head>
 
-  <body>
-    <article class="flex flex-col">
-      <article>
-        <header class="flex *:pr-4 justify-between m-4">
-          <img src="platzhalterlogo" alt="Logo" />
-          <p>Titel</p>
-          <search class="border rounded-2xl w-60 h-8">
-            <form action="./search/">
-              <input
-                class="outline-none align-text-bottom pl-3 pb-1.5"
-                type="search"
-                placeholder="suchen"
-              />
-              <button class="material-symbols-outlined pt-1 ml-1" type="submit">
-                search
-              </button>
-            </form>
-          </search>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genderautomat</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="src/styles.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+</head>
 
-          <nav>
-            <ul class="flex *:px-4 *:hover:underline">
-              <li><a href="" aria-current="page" class="underline">Home</a></li>
-              <li><a href="artikel.html">Artikel</a></li>
-              <li><a href="support.html">Support</a></li>
-              <li><a href="admin.html">Admin</a></li>
-            </ul>
-          </nav>
-        </header>
-        <hr/>
-      </article>
+<body>
+  <article class="flex flex-col">
+    <article>
+      <header class="flex *:pr-4 justify-between m-4">
+        <img src="platzhalterlogo" alt="Logo" />
+        <p>Titel</p>
+        <search class="border rounded-3xl bg-pink-50">
+          <form action="./search/">
+            <input class="outline-none align-text-bottom pl-3 pb-1" type="search" placeholder="suchen" />
+            <button class="material-symbols-outlined pt-1 ml-1" type="submit">
+              search
+            </button>
+          </form>
+        </search>
 
-      <article class="flex ">
         <nav>
-          <ul class="*:py-4 pl-4 pr-32">
-            <li><a href="#">Seite</a></li>
-            <li><a href="#">Seite</a></li>
-            <li><a href="#">Seite</a></li>
-            <li><a href="#">Seite</a></li>
-            <li><a href="#">Seite</a></li>
+          <ul class="flex *:px-4 mt-1">
+            <li>
+              <a href="aria-current=page" class="bg-pink-300 hover:bg-orange-300 py-2 px-4 rounded-3xl">Home</a>
+            </li>
+            <li>
+              <a href="artikel.html" class="hover:bg-orange-300 py-2 px-4 rounded-3xl">Artikel</a>
+            </li>
+            <li>
+              <a href="support.html" class="hover:bg-orange-300 py-2 px-4 rounded-3xl">Support</a>
+            </li>
+            <li>
+              <a href="admin.html" class="hover:bg-orange-300 py-2 px-4 rounded-3xl">Admin</a>
+            </li>
           </ul>
         </nav>
+      </header>
+      <hr />
+    </article>
 
-        <article class=" bg-amber-400 size-full">
-          <div class="pt-16">
-          <section class="p-8">
-            <h2 class="text-4xl">Entdecke Unsere Dokumentationen</h2>
+    <article class="flex">
+      <nav>
+        <ul class="*:py-4 pl-4 pr-32">
+          <li><a href="#">Seite</a></li>
+          <li><a href="#">Seite</a></li>
+          <li><a href="#">Seite</a></li>
+          <li><a href="#">Seite</a></li>
+          <li><a href="#">Seite</a></li>
+        </ul>
+      </nav>
+
+      <article class="bg-pink-50 size-full">
+        <div class="pt-8">
+          <section class="pl-8">
+            <h2 class="text-4xl font-bold">
+              Entdecke Unsere Dokumentationen
+            </h2>
           </section>
 
-          <article class="flex *:pr-8 p-8">
-            <section>
-              <h3>Titel des Artikels</h3>
+  
+
+          <h3 class="text-2xl font-bold pt-16 pl-8">Web-Entwicklung</h3>
+          <article class="dokumentation-box">
+            <section class="flex flex-col text-wrap gap-y-4">
+              <h4 class="">Frontend-Architektur mit Frameworks</h4>
               <p>Kurzbeschreibung</p>
             </section>
 
-            <section>
-              <h3>Titel des Artikels</h3>
+            <section class="flex flex-col gap-y-4">
+              <h4>Responsive Design</h4>
               <p>Kurzbeschreibung</p>
             </section>
 
-            <section>
-              <h3>Titel des Artikels</h3>
+            <section class="flex flex-col gap-y-4">
+              <h4>API Dokumentation</h4>
               <p>Kurzbeschreibung</p>
             </section>
           </article>
           </div>
-        </article>
+
+          
+
+          
+          
+        <h3 class="text-2xl font-bold pl-8">User Experience (UX)</h3>
+        <article class="dokumentation-box">
+          <section class="flex flex-col gap-y-4">
+            <h4>Titel</h4>
+            <p>Kurzbeschreibung</p>
+          </section>
+          </article>
+          </article>
+        
       </article>
     </article>
-  </body>
+</body>
+
 </html>
