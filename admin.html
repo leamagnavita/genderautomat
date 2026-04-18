@@ -4,30 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genderautomat</title>
+       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
+    />
 </head>
 <body>
     <!--Header-->
-    <header>
-        <img src="platzhalterlogo" alt="Logo">
-        <p>Titel</p>
-        <search>
+<article class="flex flex-col">
+      <article>
+        <header class="flex *:pr-4 justify-between m-4">
+          <img src="platzhalterlogo" alt="Logo" />
+          <p>Titel</p>
+          <search class="border rounded-3xl bg-pink-50">
             <form action="./search/">
-                <input type="search" placeholder="suchen">
-                <button type="submit">suchen</button>
+              <input
+                class="outline-none align-text-bottom pl-3 pb-1"
+                type="search"
+                placeholder="suchen"
+              />
+              <button class="material-symbols-outlined pt-1 ml-1" type="submit">
+                search
+              </button>
             </form>
-        </search>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="artikel.html">Artikel</a></li>
-                <li><a href="support.html">Support</a></li>
-                <li><a href="" aria-current="page" class="underline">Admin</a></li>
-            </ul>
-        </nav>
-        </header>
+          </search>
 
-<nav> <!--Sidebar nav-->
-    <ul>
+          <nav>
+            <ul class="flex *:px-4 mt-1">
+              <li>
+                <a
+                  href="index.html"
+                  class="hover:bg-orange-300 py-2 px-4 rounded-3xl"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="artikel.html"
+                  class="hover:bg-orange-300 py-2 px-4 rounded-3xl"
+                  >Artikel</a
+                >
+              </li>
+              <li>
+                <a
+                  href="support.html"
+                  class="hover:bg-orange-300 py-2 px-4 rounded-3xl"
+                  >Support</a
+                >
+              </li>
+              <li>
+                <a
+                  href="aria-current=page"
+                  class="bg-pink-300 hover:bg-orange-300 py-2 px-4 rounded-3xl"
+                  >Admin</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <hr />
+      </article>
+</article>
+
+ <!--Sidebar nav-->
+<article class="flex">
+<nav>
+    <ul class="*:py-4 pl-4 pr-32">
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="artikel.html">Artikel</a></li>
             <ul>
@@ -35,6 +79,9 @@
             </ul>
     </ul>
 </nav>
+</article>
+
+<!--neuer Artikel Bereich-->
 <form>
     <label for="t1">Titel</label>
     <input type="text" id="t1" name="titel">
