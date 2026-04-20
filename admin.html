@@ -69,9 +69,10 @@
 </article>
 
  <!--Sidebar nav-->
-<article class="flex">
+<article class="flex ml-4">
+<article class="">
 <nav>
-    <ul class="*:py-4 pl-4 pr-32">
+    <ul class="*:py-4 pl-2 pr-32">
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="artikel.html">Artikel</a></li>
             <ul>
@@ -82,27 +83,37 @@
 </article>
 
 <!--neuer Artikel Bereich-->
-<form>
-    <label for="t1">Titel</label>
-    <input type="text" id="t1" name="titel">
+<article class="bg-pink-50 w-screen min-h-screen ">
+<form class="flex flex-col">
+    
+<div class="flex flex-row">
+    <section class="flex flex-col *:ml-4">
+        <label class="pt-4" for="t1">Titel</label>
+        <input class="border rounded-3xl mb-8 mr-16 h-8" type="text" id="t1" name="titel">
+    </section>
 
-    <label for="k1">Kategorie1</label>
-    <input type="radio" id="k1" name="radiob">
+    <div class="">
+        <select class="border rounded-3xl mt-10 p-1.5">
+            <option>Kategorie 1</option>
+            <option>Kategorie 2</option>
+            <option>Kategorie 3</option>
+        </select>
+    </div>
+</div>
 
-    <label for="k2">Kategorie2</label>
-    <input type="radio" id="k2" name="radiob">
+    <div class="flex flex-col *:ml-4">
+        <label for="kurzb">Kurzbeschreibung</label>
+        <textarea class="border rounded-3xl my-4" id="kurzb"></textarea>
+    
+        <label for="artikel">Artikel</label>
+        <textarea class="border rounded-3xl my-4" id="artikel"></textarea>
+        
+        <button class="border w-50" type="submit">veröffentlichen</button>
+    </div>
 
-    <label for="k3">Kategorie3</label>
-    <input type="radio" id="k3" name="radiob">
-
-    <label for="kurzb">Kurzbeschreibung</label>
-    <textarea id="kurzb"></textarea>
-
-    <label for="artikel">Artikel</label>
-    <textarea id="artikel"></textarea>
-
-    <button type="submit">veröffentlichen</button>
 </form>
+</article>
+</article>
 
 </body>
 </html>
