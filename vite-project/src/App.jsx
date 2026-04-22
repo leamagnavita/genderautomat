@@ -2,118 +2,144 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
-import './App.css'
+import './index.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <article className="flex flex-col">
+      <article>
+        <header className="flex *:pr-4 justify-between m-4">
+          <img src="platzhalterlogo" alt="Logo"/>
+          <p>Titel</p>
+          <search className="border rounded-3xl bg-pink-50">
+            <form action="./search/">
+              <input
+                className="outline-none align-text-bottom pl-3 pb-1"
+                type="search"
+                placeholder="suchen"
+              />
+              <button className="material-symbols-outlined pt-1 ml-1" type="submit">
+                search
+              </button>
+            </form>
+          </search>
 
-      <div className="ticks"></div>
+          <nav>
+            <ul className="flex *:px-4 mt-1">
+              <li>
+                <a
+                  href="aria-current=page"
+                  className="bg-pink-300 hover:bg-orange-300 py-2 px-4 rounded-3xl"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="artikel.html"
+                  className="hover:bg-orange-300 py-2 px-4 rounded-3xl"
+                  >Artikel</a
+                >
+              </li>
+              <li>
+                <a
+                  href="support.html"
+                  className="hover:bg-orange-300 py-2 px-4 rounded-3xl"
+                  >Support</a
+                >
+              </li>
+              <li>
+                <a
+                  href="admin.html"
+                  className="hover:bg-orange-300 py-2 px-4 rounded-3xl"
+                  >Admin</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <hr />
+      </article>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
+      <article className="flex">
+        <nav>
+          <ul className="*:py-4 pl-4 pr-32">
+            <li><a href="#">Seite</a></li>
+            <li><a href="#">Seite</a></li>
+            <li><a href="#">Seite</a></li>
+            <li><a href="#">Seite</a></li>
+            <li><a href="#">Seite</a></li>
           </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        </nav>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+        <article className="bg-pink-50 size-full">
+          <div className="pt-8">
+            <section className="pl-8">
+              <h2 className="text-4xl font-bold">
+                Entdecke Unsere Dokumentationen
+              </h2>
+            </section>
+
+            <h3 className="text-2xl font-bold pt-16 pl-8">Web-Entwicklung</h3>
+            <article className="dokumentation-box">
+              <section className="flex flex-col text-wrap gap-y-4">
+                <h4>Frontend-Architektur mit Frameworks</h4>
+                <p>Kurzbeschreibung</p>
+              </section>
+
+              <section className="flex flex-col gap-y-4">
+                <h4>Responsive Design</h4>
+                <p>Kurzbeschreibung</p>
+              </section>
+
+              <section className="flex flex-col gap-y-4">
+                <h4>API Dokumentation</h4>
+                <p>Kurzbeschreibung</p>
+              </section>
+            </article>
+          </div>
+
+          <h3 className="text-2xl font-bold pl-8">User Experience (UX)</h3>
+          <article className="dokumentation-box">
+            <section className="flex flex-col gap-y-4">
+              <h4>Usability Testverfahren</h4>
+              <p>Kurzbeschreibung</p>
+            </section>
+
+            <section className="flex flex-col gap-y-4">
+              <h4>Inklusives Design</h4>
+              <p>Kurzbeschreibung</p>
+            </section>
+
+            <section className="flex flex-col gap-y-4">
+              <h4>HCI</h4>
+              <p>Kurzbeschreibung</p>
+            </section>
+          </article>
+
+          <h3 className="text-2xl font-bold pl-8">Software Engineering</h3>
+          <article className="dokumentation-box">
+            <section className="flex flex-col gap-y-4">
+              <h4>Maschinelles Lernen</h4>
+              <p>Kurzbeschreibung</p>
+            </section>
+
+            <section className="flex flex-col gap-y-4">
+              <h4>Agiles Projektmanagement</h4>
+              <p>Kurzbeschreibung</p>
+            </section>
+
+            <section className="flex flex-col gap-y-4">
+              <h4>Datenbanksysteme</h4>
+              <p>Kurzbeschreibung</p>
+            </section>
+          </article>
+        </article>
+      </article>
+    </article>
+    )
+
     </>
   )
 }
