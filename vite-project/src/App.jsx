@@ -1,13 +1,18 @@
+import Admin from './Admin'
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './index.css'
+import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
+
 
 function App() {
+const [seite, setSeite] = useState('home');
 
   return (
-    <>
+    <Router>
+
       <article className="flex flex-col">
       <article>
         <header className="flex *:pr-4 justify-between m-4">
@@ -29,32 +34,16 @@ function App() {
           <nav>
             <ul className="flex *:px-4 mt-1">
               <li>
-                <a
-                  href="aria-current=page"
-                  className="bg-pink-300 hover:bg-orange-300 py-2 px-4 rounded-3xl"
-                  >Home</a
-                >
+                <NavLink to="/" className="aria-[current=page]:bg-pink-300 hover:bg-orange-300 py-2 px-4 rounded-3xl">Home</NavLink>
               </li>
               <li>
-                <a
-                  href="artikel.html"
-                  className="hover:bg-orange-300 py-2 px-4 rounded-3xl"
-                  >Artikel</a
-                >
+                <NavLink to="/artikel" className="aria-[current=page]:bg-pink-300 hover:bg-orange-300 py-2 px-4 rounded-3xl">Artikel</NavLink>
               </li>
               <li>
-                <a
-                  href="support.html"
-                  className="hover:bg-orange-300 py-2 px-4 rounded-3xl"
-                  >Support</a
-                >
+                <NavLink to="/support" className="aria-[current=page]:bg-pink-300 hover:bg-orange-300 py-2 px-4 rounded-3xl">Support</NavLink>
               </li>
               <li>
-                <a
-                  href="admin.html"
-                  className="hover:bg-orange-300 py-2 px-4 rounded-3xl"
-                  >Admin</a
-                >
+                <NavLink to="/admin" className="aria-[current=page]:bg-pink-300 hover:bg-orange-300 py-2 px-4 rounded-3xl">Admin</NavLink>
               </li>
             </ul>
           </nav>
@@ -62,7 +51,11 @@ function App() {
         <hr />
       </article>
 
-      <article className="flex">
+      <Routes>
+
+        <Route path="/" element={
+        <>
+        <article className="flex">
         <nav>
           <ul className="*:py-4 pl-4 pr-32">
             <li><a href="#">Seite</a></li>
@@ -72,7 +65,7 @@ function App() {
             <li><a href="#">Seite</a></li>
           </ul>
         </nav>
-
+          
         <article className="bg-pink-50 size-full">
           <div className="pt-8">
             <section className="pl-8">
@@ -137,11 +130,19 @@ function App() {
           </article>
         </article>
       </article>
-    </article>
-    )
+      </>
+    } />
 
-    </>
-  )
-}
 
-export default App
+
+    <Route path="/admin" element={<Admin/>} />
+  </Routes>
+      </article>
+    </Router>
+  ); 
+} 
+
+export default App;
+
+
+
