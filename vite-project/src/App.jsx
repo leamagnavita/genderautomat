@@ -1,11 +1,8 @@
 import Admin from './Admin'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './index.css'
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
-
+import { FaSearch } from "react-icons/fa";
 
 function App() {
 const [seite, setSeite] = useState('home');
@@ -25,8 +22,8 @@ const [seite, setSeite] = useState('home');
                 type="search"
                 placeholder="suchen"
               />
-              <button className="material-symbols-outlined pt-1 ml-1" type="submit">
-                search
+              <button className=" pt-1 ml-1" type="submit">
+                <FaSearch/>
               </button>
             </form>
           </search>
@@ -58,11 +55,11 @@ const [seite, setSeite] = useState('home');
         <article className="flex">
         <nav>
           <ul className="*:py-4 pl-4 pr-32">
-            <li><a href="#">Seite</a></li>
-            <li><a href="#">Seite</a></li>
-            <li><a href="#">Seite</a></li>
-            <li><a href="#">Seite</a></li>
-            <li><a href="#">Seite</a></li>
+            <li><Link to="/">Seite</Link></li>
+            <li><Link to="/">Seite</Link></li>
+            <li><Link to="/">Seite</Link></li>
+            <li><Link to="/">Seite</Link></li>
+            <li><Link to="/">Seite</Link></li>
           </ul>
         </nav>
           

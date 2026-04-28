@@ -6,6 +6,8 @@ import heroImg from './assets/hero.png'
 import './index.css'
 
 export default function Admin() {
+  const [toggled, setToggled] = useState(false);
+  
   return (
     <>
     
@@ -48,6 +50,15 @@ export default function Admin() {
         <label for="artikel">Artikel</label>
         <textarea className="border rounded-3xl my-4" id="artikel"></textarea>
         
+        <button type="button"
+        className={`bg-blue-200 rounded-3xl w-12.5 h-6 relative transition-colors 0.1s ease active:bg-gray-400  ${toggled ? "bg-pink-300" : "" }`}
+        onClick={() => setToggled(!toggled)}>
+          <div className={`absolute top-1/2 left-0.75 h-5 w-5 -translate-y-1/2 rounded-full bg-blue-400 transition-transform duration-150 ease-in-out ${
+          toggled ? 'translate-x-6' : 'translate-x-0'
+        }`}
+      />
+    </button>
+
         
         <button className="border w-50" type="submit">veröffentlichen</button>
     </div>
@@ -61,4 +72,5 @@ export default function Admin() {
     )
     }
 
+   
     
