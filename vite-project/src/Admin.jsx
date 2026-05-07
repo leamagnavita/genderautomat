@@ -7,9 +7,64 @@ import './index.css'
 
 export default function Admin() {
   const [toggled, setToggled] = useState(false);
-  
-  return (
-    <>
+
+
+function genderAutomat(){
+            
+    const sonderfall = {
+        "Kunden": "Kundschaft",
+        "Abteilungsleiter": "Abteilungsleitung",
+        "Administrator": "Administration"
+    };
+        
+    
+
+    const ignorieren = [
+        "Computer",
+        "Leiter",
+        "Server",
+        "Router",
+        "Controller",
+        "Header",
+        "Buffer",
+        "Pointer",
+        "Trigger",
+        "Layer",
+        "Cluster"
+    ];
+    
+    let artikelText = artikel.value;
+
+    const ergebnis = artikelText.split(" ").map(wort => {
+        const sauberesWort = wort.replace(/[.,!?;:]/g, " ");
+        
+
+{/* wenn eines dieser Wörter im Artikel vorkommt, dann ignoriere diese */}
+
+        if(ignorieren.includes(sauberesWort)) 
+            return wort;
+        
+
+{/* wenn eins der Wörter aus der Liste vorkommt, dann ersetze es durch die genderneutrale Form */}
+        if(sonderfall[sauberesWort]) {
+            return wort.replace(sauberesWort, sonderfall[sauberesWort]); 
+        }
+
+{/* prüfe, ob groß geschriebene Wörter auf -er enden und ersetze -er durch -ende */}
+       const erRegex = /^[A-ZÄÖÜ][a-zäöüß]*er$/;
+       if (erRegex.test(sauberesWort)) {
+            return wort.replace(/er(\b|[.,!?;:])/g, "ende$1");
+       }
+
+    return wort;
+});
+
+    return ergebnis.join("");
+}
+
+
+return (
+   <> 
     
 <article className="flex ml-4">
 <article className="">
@@ -55,9 +110,16 @@ export default function Admin() {
         onClick={() => setToggled(!toggled)}>
           <div className={`absolute top-1/2 left-0.75 h-5 w-5 -translate-y-1/2 rounded-full bg-blue-400 transition-transform duration-150 ease-in-out ${
           toggled ? 'translate-x-6' : 'translate-x-0'
+
+
+
         }`}
+
       />
+
     </button>
+
+
 
         
         <button className="border w-50" type="submit">veröffentlichen</button>
@@ -68,9 +130,8 @@ export default function Admin() {
 </article>
 
     
-    </>
-    )
-    }
+        </>
+    );
+}
 
    
-    
