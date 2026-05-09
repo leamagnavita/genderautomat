@@ -13,7 +13,9 @@ export default function Admin() {
     const sonderfall = {
         "Kunden": "Kundschaft",
         "Abteilungsleiter": "Abteilungsleitung",
-        "Administrator": "Administration"
+        "Administrator": "Administration",
+        "Autor": "verfassende Person",
+        "Anwender": "anwendende Person"
     };
 
     const ignorieren = [
@@ -27,7 +29,8 @@ export default function Admin() {
         "Pointer",
         "Trigger",
         "Layer",
-        "Cluster"
+        "Cluster",
+        "Fehler"
     ];
 
     const artikel = [
@@ -40,7 +43,10 @@ export default function Admin() {
          const ergebnis = eingabeText.split(" ").map((wort, index, alleWoerter) => {
             const sauberesWort = wort.replace(/[.,!?;:]/g, "");
             const vorherigesWort = (alleWoerter[index - 1] || "").toLowerCase().replace(/[.,!?:;]/g, "");
+            /* zwei Wörter zurückschauen wegen Attributen im Text */ 
+            const vorVorherigesWort = (alleWoerter[index - 2] || "").toLowerCase().replace(/[.,!?:;]/g, "");
             const erRegex = /^[A-ZÄÖÜ][a-zäöüß]*er$/u;
+            const artikelDavor = artikel.includes(vorherigesWort) || artikel.includes(vorVorherigesWort);
             
             /* wenn eines dieser Wörter im Artikel vorkommt, dann ignoriere diese */ 
 
@@ -51,8 +57,9 @@ export default function Admin() {
             if (sonderfall[sauberesWort]) {
                 return wort.replace(sauberesWort, sonderfall[sauberesWort]);
             }
-            /* wenn das vorherige Wort ein Artikel ist, dass prüfe, ob das Wort großgeschrieben ist und auf -er endet und ersetze -er zu -ende*/
-            if(artikel.includes(vorherigesWort) && erRegex.test(sauberesWort)) {
+            /* wenn das vorherige oder vor vorherige Wort ein Artikel ist, dass prüfe, ob das Wort großgeschrieben ist und auf -er endet und ersetze -er zu -ende*/
+
+            if(artikelDavor && erRegex.test(sauberesWort)) {
                 return wort.replace(/er(\b|[.,!?;:])/g, "ende$1");
             }
 
