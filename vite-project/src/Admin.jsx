@@ -30,34 +30,38 @@ export default function Admin() {
         "Cluster"
     ];
 
+    const artikel = [
+        "der", "die", "das", "ein", "eine", "einer", "einen", "dem", "den", "dieser", "diese", "diesen", "jeder", "jede", "jeden", "alle", "mehrere", "viele"
+    ];
+
     useEffect(() => {
-
-        if(toggled) {
-         const ergebnis = eingabeText.split(" ").map(wort => {
-            const sauberesWort = wort.replace(/[.,!?;:]/g, " ");
         
-
+        if(toggled) {
+         const ergebnis = eingabeText.split(" ").map((wort, index, alleWoerter) => {
+            const sauberesWort = wort.replace(/[.,!?;:]/g, "");
+            const vorherigesWort = (alleWoerter[index - 1] || "").toLowerCase().replace(/[.,!?:;]/g, "");
+            const erRegex = /^[A-ZÄÖÜ][a-zäöüß]*er$/u;
+            
             /* wenn eines dieser Wörter im Artikel vorkommt, dann ignoriere diese */ 
 
             if (ignorieren.includes(sauberesWort)) 
                 return wort;
             
-
-            {/* wenn eins der Wörter aus der Liste vorkommt, dann ersetze es durch die genderneutrale Form */ }
+            /* wenn eins der Wörter aus der Liste vorkommt, dann ersetze es durch die genderneutrale Form */ 
             if (sonderfall[sauberesWort]) {
                 return wort.replace(sauberesWort, sonderfall[sauberesWort]);
             }
-
-            {/* prüfe, ob groß geschriebene Wörter auf -er enden und ersetze -er durch -ende */ }
-            const erRegex = /^[A-ZÄÖÜ][a-zäöüß]*er$/;
-            if (erRegex.test(sauberesWort)) {
+            /* wenn das vorherige Wort ein Artikel ist, dass prüfe, ob das Wort großgeschrieben ist und auf -er endet und ersetze -er zu -ende*/
+            if(artikel.includes(vorherigesWort) && erRegex.test(sauberesWort)) {
                 return wort.replace(/er(\b|[.,!?;:])/g, "ende$1");
             }
 
             return wort;
         });
-        setErgebnisText(ergebnis.join(""));
+        
+        setErgebnisText(ergebnis.join(" "));
     } else {
+        
             setErgebnisText(eingabeText);
         }
 }, [toggled, eingabeText]); 
@@ -99,16 +103,16 @@ return (
                     </div>
 
                     <div className="flex flex-col *:ml-4">
-                        <label for="kurzb">Kurzbeschreibung</label>
+                        <label htmlFor="kurzb">Kurzbeschreibung</label>
                         <textarea className="border rounded-3xl my-4" id="kurzb"></textarea>
 
-                        <label for="artikel">Artikel</label>
-                        <textarea className="border rounded-3xl my-4" id="artikel" value={eingabeText} onChange={(e) => setEingabeText(e.target.value)} ></textarea>
+                        <label htmlFor="artikel">Artikel</label>
+                        <textarea className="border rounded-3xl my-4" id="artikel" value={ergebnisText} onChange={(e) => setEingabeText(e.target.value)} ></textarea>
 
                         <button type="button"
                             className={`bg-blue-200 rounded-3xl w-12.5 h-6 relative transition-colors 0.1s ease active:bg-gray-400  ${toggled ? "bg-pink-300" : ""}`}
                             onClick={() => setToggled(!toggled)}>
-                            <div className={`absolute top-1/2 left-0.75 h-5 w-5 -translate-y-1/2 rounded-full bg-blue-400 transition-transform duration-150 ease-in-out ${toggled ? 'translate-x-6' : 'translate-x-0'
+                            <div className={`absolute top-1/2 left-0.75 h-5 w-5 -translate-y-1/2 rounded-full bg-blue-400 transition-transform duration-150 ease-in-out pointer-events-none ${toggled ? 'translate-x-6' : 'translate-x-0'
                                 }`}
 
                             />
