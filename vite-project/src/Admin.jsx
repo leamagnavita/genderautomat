@@ -5,6 +5,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './index.css'
 
+
 export default function Admin() {
     const [toggled, setToggled] = useState(false);
     const [eingabeText, setEingabeText] = useState("");
@@ -14,13 +15,12 @@ export default function Admin() {
         "Kunden": "Kundschaft",
         "Abteilungsleiter": "Abteilungsleitung",
         "Administrator": "Administration",
-        "Autor": "verfassende Person",
-        "Anwender": "anwendende Person"
+        "Autor": "verfassende Person"
+        
     };
 
     const ignorieren = [
         "Computer",
-        "Leiter",
         "Server",
         "Router",
         "Controller",
@@ -114,7 +114,11 @@ return (
                         <textarea className="border rounded-3xl my-4" id="kurzb"></textarea>
 
                         <label htmlFor="artikel">Artikel</label>
-                        <textarea className="border rounded-3xl my-4" id="artikel" value={ergebnisText} onChange={(e) => setEingabeText(e.target.value)} ></textarea>
+                        
+                       <textarea className="border rounded-3xl my-4" id="artikel" value={ergebnisText} onChange={(e) => setEingabeText(e.target.value)} ></textarea>
+                        
+                        
+                        
 
                         <button type="button"
                             className={`bg-blue-200 rounded-3xl w-12.5 h-6 relative transition-colors 0.1s ease active:bg-gray-400  ${toggled ? "bg-pink-300" : ""}`}
@@ -125,9 +129,6 @@ return (
                             />
 
                         </button>
-
-
-
 
                         <button className="border w-50" type="submit">veröffentlichen</button>
                     </div>

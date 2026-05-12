@@ -1,3 +1,4 @@
+
 import Admin from './Admin'
 import { useState } from 'react'
 import './index.css'
@@ -11,6 +12,9 @@ const [seite, setSeite] = useState('home');
     <Router>
 
       <article className="flex flex-col">
+
+
+
       <article>
         <header className="flex *:pr-4 justify-between m-4">
           <img src="platzhalterlogo" alt="Logo"/>
@@ -47,6 +51,8 @@ const [seite, setSeite] = useState('home');
         </header>
         <hr />
       </article>
+
+
 
       <Routes>
 
@@ -127,6 +133,8 @@ const [seite, setSeite] = useState('home');
           </article>
         </article>
       </article>
+
+
       </>
     } />
 
@@ -134,6 +142,20 @@ const [seite, setSeite] = useState('home');
 
     <Route path="/admin" element={<Admin/>} />
   </Routes>
+        {/* Footer */}   
+      <footer className="bg-blue-200">
+        <div className=" flex flex-col">
+          <p> 2026 Name der Website. All Rights Reserved. </p>
+          <ul>
+            <li className=" *:mr-3">
+              <Link to="/">Impressum</Link>
+              <Link to="/">Datenschutz</Link>
+              <Link to="/">Social Media</Link>
+              <Link to="/">Über</Link>
+            </li>
+          </ul>
+        </div>
+      </footer>
       </article>
     </Router>
   ); 
