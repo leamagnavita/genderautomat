@@ -88,7 +88,7 @@ return (
 </button>
 </div>
 
-        <div className="flex">
+        
             <article className={` ${sidebarOpen ? "block" : "hidden" } md:block w-64 bg-white`}>
                 <nav>
                     <ul className="*:py-4 pl-2 pr-32">
@@ -102,13 +102,13 @@ return (
             </article>
 
 
-            <article className="bg-pink-50 w-screen min-h-screen ">
-                <form className="flex flex-col">
+            <article className="bg-pink-100 flex-1 w-full min-h-screen  ">
+                <form className="bg-pink-100 flex flex-col p-4 md:p-8 w-full">
 
-                    <div className="flex flex-row">
-                        <section className="flex flex-col *:ml-4">
+                    <div className="flex flex-row gap-8">
+                        <section className="flex flex-col ">
                             <label className="pt-4" for="t1">Titel</label>
-                            <input className="border rounded-3xl mb-8 mr-16 h-8" type="text" id="t1" name="titel" />
+                            <input className="border rounded-3xl mb-8 h-8" type="text" id="t1" name="titel" />
                         </section>
 
                         <div className="">
@@ -120,13 +120,13 @@ return (
                         </div>
                     </div>
 
-                    <div className="flex flex-col *:ml-4">
+                    <div className=" flex flex-col w-full px-4">
                         <label htmlFor="kurzb">Kurzbeschreibung</label>
-                        <textarea className="border rounded-3xl my-4" id="kurzb"></textarea>
+                        <textarea className=" w-full border rounded-3xl my-4" id="kurzb"></textarea>
 
                         <label htmlFor="artikel">Artikel</label>
                         
-                       <textarea className="border rounded-3xl my-4" id="artikel" value={ergebnisText} onChange={(e) => setEingabeText(e.target.value)} ></textarea>
+                       <textarea className=" w-full border rounded-3xl my-4" id="artikel" value={ergebnisText} onChange={(e) => setEingabeText(e.target.value)} ></textarea>
                         
                         
                         
@@ -147,7 +147,7 @@ return (
                 </form>
             </article>
         </div>
-        </div>
+        
 
 
     </>
