@@ -1,5 +1,9 @@
 
 import Admin from './Admin'
+import Impressum from './Impressum'
+import Datenschutz from './Datenschutz'
+import Kontakt from './Kontakt'
+import Hamburger from './Hamburger'
 import { useState } from 'react'
 import './index.css'
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
@@ -8,15 +12,21 @@ import { FaSearch } from "react-icons/fa";
 function App() {
 const [seite, setSeite] = useState('home');
 
+const [hamburgerOpen, setHamburgerOpen] = useState(false);
+
+const toggleHamburger = () =>{
+  setHamburgerOpen(!hamburgerOpen);
+};
+
+
+
   return (
     <Router>
 
       <article className="flex flex-col">
 
-
-
       <article>
-        <header className="flex *:pr-4 justify-between m-4">
+        <header className="relative flex *:pr-4 justify-between m-4">
           <img src="platzhalterlogo" alt="Logo"/>
           <p>Titel</p>
           <search className="border rounded-3xl bg-pink-50">
@@ -33,7 +43,7 @@ const [seite, setSeite] = useState('home');
           </search>
 
           <nav>
-            <ul className="flex *:px-4 mt-1">
+            <ul className="hidden md:flex *:px-4 mt-1">
               <li>
                 <NavLink to="/" className="aria-[current=page]:bg-pink-300 hover:bg-orange-300 py-2 px-4 rounded-3xl">Home</NavLink>
               </li>
@@ -47,7 +57,31 @@ const [seite, setSeite] = useState('home');
                 <NavLink to="/admin" className="aria-[current=page]:bg-pink-300 hover:bg-orange-300 py-2 px-4 rounded-3xl">Admin</NavLink>
               </li>
             </ul>
+
+{/*Hamburger Menü < md */}
+            <div className="md:hidden" onClick={toggleHamburger}>
+              <Hamburger/>
+            </div>
+            {hamburgerOpen && (
+              <ul className="absolute top-20 right-4 flex flex-col gap-4 bg-white p-4 rounded-xl shadow-lg mt-4 md:hidden">
+              <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/artikel">Artikel</NavLink>
+              </li>
+              <li>
+                <NavLink to="/support">Support</NavLink>
+              </li>
+              <li>
+                <NavLink to="/admin">Admin</NavLink>
+              </li>
+              </ul>
+            )}
+
+
           </nav>
+
         </header>
         <hr />
       </article>
@@ -59,15 +93,7 @@ const [seite, setSeite] = useState('home');
         <Route path="/" element={
         <>
         <article className="flex">
-        <nav>
-          <ul className="*:py-4 pl-4 pr-32">
-            <li><Link to="/">Seite</Link></li>
-            <li><Link to="/">Seite</Link></li>
-            <li><Link to="/">Seite</Link></li>
-            <li><Link to="/">Seite</Link></li>
-            <li><Link to="/">Seite</Link></li>
-          </ul>
-        </nav>
+
           
         <article className="bg-pink-50 size-full">
           <div className="pt-8">
@@ -79,7 +105,7 @@ const [seite, setSeite] = useState('home');
 
             <h3 className="text-2xl font-bold pt-16 pl-8">Web-Entwicklung</h3>
             <article className="dokumentation-box">
-              <section className="flex flex-col text-wrap gap-y-4">
+              <section className="flex flex-col gap-y-4">
                 <h4>Frontend-Architektur mit Frameworks</h4>
                 <p>Kurzbeschreibung</p>
               </section>
@@ -141,17 +167,20 @@ const [seite, setSeite] = useState('home');
 
 
     <Route path="/admin" element={<Admin/>} />
+    <Route path="/impressum" element={<Impressum/>}></Route>
+    <Route path="/datenschutz" element={<Datenschutz/>}></Route>
+    <Route path="/kontakt" element={<Kontakt/>}></Route>
+
   </Routes>
         {/* Footer */}   
       <footer className="bg-blue-200">
         <div className=" flex flex-col">
           <p> 2026 Name der Website. All Rights Reserved. </p>
           <ul>
-            <li className=" *:mr-3">
-              <Link to="/">Impressum</Link>
-              <Link to="/">Datenschutz</Link>
-              <Link to="/">Social Media</Link>
-              <Link to="/">Über</Link>
+            <li className="*:mr-3">
+              <Link to="/impressum">Impressum</Link>
+              <Link to="/datenschutz">Datenschutz</Link>
+              <Link to="/kontakt">Kontakt</Link>
             </li>
           </ul>
         </div>

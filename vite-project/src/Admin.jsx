@@ -7,6 +7,10 @@ import './index.css'
 
 
 export default function Admin() {
+
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+
     const [toggled, setToggled] = useState(false);
     const [eingabeText, setEingabeText] = useState("");
     const [ergebnisText, setErgebnisText] = useState("");
@@ -76,9 +80,16 @@ export default function Admin() {
 
 return (
     <>
+{/*Sidebar nav */}
+<div className="flex" >
+<div className="md:hidden w-10 flex justify-center pt-4" >
+    <button onClick={() => setSidebarOpen(!sidebarOpen)} >
+➜
+</button>
+</div>
 
-        <article className="flex ml-4">
-            <article className="">
+        <div className="flex">
+            <article className={` ${sidebarOpen ? "block" : "hidden" } md:block w-64 bg-white`}>
                 <nav>
                     <ul className="*:py-4 pl-2 pr-32">
                         <li><a href="dashboard.html">Dashboard</a></li>
@@ -135,7 +146,8 @@ return (
 
                 </form>
             </article>
-        </article>
+        </div>
+        </div>
 
 
     </>
