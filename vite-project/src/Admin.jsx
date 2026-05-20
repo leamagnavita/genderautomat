@@ -107,11 +107,11 @@ return (
 
                     <div className="flex flex-row gap-8">
                         <section className="flex flex-col ">
-                            <label className="pt-4" for="t1">Titel</label>
+                            <label className="font-semibold py-4 " for="t1">Titel</label>
                             <input className="border rounded-3xl mb-8 h-8" type="text" id="t1" name="titel" />
                         </section>
 
-                        <div className="">
+                        <div className="my-4">
                             <select className="border rounded-3xl mt-10 p-1.5">
                                 <option>Kategorie 1</option>
                                 <option>Kategorie 2</option>
@@ -121,18 +121,15 @@ return (
                     </div>
 
                     <div className=" flex flex-col w-full px-4">
-                        <label htmlFor="kurzb">Kurzbeschreibung</label>
-                        <textarea className=" w-full border rounded-3xl my-4" id="kurzb"></textarea>
+                        <label className="font-semibold" htmlFor="kurzb">Kurzbeschreibung</label>
+                        <textarea className="mb-10 w-full border rounded-3xl my-4" id="kurzb"></textarea>
 
-                        <label htmlFor="artikel">Artikel</label>
-                        
-                       <textarea className=" w-full border rounded-3xl my-4" id="artikel" value={ergebnisText} onChange={(e) => setEingabeText(e.target.value)} ></textarea>
-                        
-                        
-                        
+                        <label className="font-semibold" htmlFor="artikel">Artikel</label>
 
-                        <button type="button"
-                            className={`bg-blue-200 rounded-3xl w-12.5 h-6 relative transition-colors 0.1s ease active:bg-gray-400  ${toggled ? "bg-pink-300" : ""}`}
+                    <div className="flex-row pt-2 pb-1">
+                        <label className="" htmlFor="gendertoggle">Genderneutrale Sprache anwenden</label>
+                            <button type="button" id="gendertoggle"
+                            className={`mx-2 pb-1.5 bg-blue-200 rounded-3xl w-12.5 h-6 relative transition-colors 0.1s ease active:bg-gray-400  ${toggled ? "bg-pink-300" : ""}`}
                             onClick={() => setToggled(!toggled)}>
                             <div className={`absolute top-1/2 left-0.75 h-5 w-5 -translate-y-1/2 rounded-full bg-blue-400 transition-transform duration-150 ease-in-out pointer-events-none ${toggled ? 'translate-x-6' : 'translate-x-0'
                                 }`}
@@ -140,6 +137,14 @@ return (
                             />
 
                         </button>
+                    </div>
+                        <p className=" text-xs font-extralight text-gray-500">Die automatische Umformulierung sollte vor der Veröffentlichung überprüft werden.</p>
+                       <textarea className="mt-4 w-full border rounded-3xl my-4" id="artikel" value={ergebnisText} onChange={(e) => setEingabeText(e.target.value)} ></textarea>
+                        
+                        
+                        
+
+
 
                         <button className="border w-50" type="submit">veröffentlichen</button>
                     </div>
