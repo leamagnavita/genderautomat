@@ -8,6 +8,8 @@ import { useState } from 'react'
 import './index.css'
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
+import Beispieltexte from './Beispieltexte'
+import techdocsgmbh from './assets/techdocsgmbh.png'
 
 function App() {
 const [seite, setSeite] = useState('home');
@@ -27,8 +29,8 @@ const toggleHamburger = () =>{
 
       <article>
         <header className="relative flex *:pr-4 justify-between m-4">
-          <img src="platzhalterlogo" alt="Logo"/>
-          <p>Titel</p>
+          <img src={techdocsgmbh} alt="Logo" className="w-25 h-10 rounded-2xl"/>
+          
           <search className="border rounded-3xl bg-pink-50">
             <form action="./search/">
               <input
@@ -167,6 +169,7 @@ const toggleHamburger = () =>{
 
 
     <Route path="/admin" element={<Admin/>} />
+    <Route path="/beispieltexte" element={<Beispieltexte/>} />
     <Route path="/impressum" element={<Impressum/>}></Route>
     <Route path="/datenschutz" element={<Datenschutz/>}></Route>
     <Route path="/kontakt" element={<Kontakt/>}></Route>

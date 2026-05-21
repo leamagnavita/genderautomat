@@ -1,4 +1,5 @@
-
+import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
+import Beispieltexte from './Beispieltexte'
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -10,6 +11,8 @@ export default function Admin() {
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
+    const [error, setError] = useState("");
+    const containsHtml = /<\/?[^>]+>/gi;
 
     const [toggled, setToggled] = useState(false);
     const [eingabeText, setEingabeText] = useState("");
@@ -42,7 +45,14 @@ export default function Admin() {
     ];
 
     useEffect(() => {
-        
+
+{/*nach injizierten html tags prüfen */}
+        if(containsHtml.test(eingabeText)) {
+            setError("HTML und Script Code sind nicht erlaubt.");
+            return;
+        }
+        setError("");
+
         if(toggled) {
          const ergebnis = eingabeText.split(" ").map((wort, index, alleWoerter) => {
             const sauberesWort = wort.replace(/[.,!?;:]/g, "");
@@ -94,9 +104,10 @@ return (
                     <ul className="*:py-4 pl-2 pr-32">
                         <li><a href="dashboard.html">Dashboard</a></li>
                         <li><a href="artikel.html">Artikel</a></li>
-                        <ul>
+                        
                             <li><a href="neuerartikel.html">neu</a></li>
-                        </ul>
+                    
+                        <li><Link to="/beispieltexte">Beispieltexte</Link></li>
                     </ul>
                 </nav>
             </article>
@@ -140,6 +151,9 @@ return (
                     </div>
                         <p className=" text-xs font-extralight text-gray-500">Die automatische Umformulierung sollte vor der Veröffentlichung überprüft werden.</p>
                        <textarea className="mt-4 w-full border rounded-3xl my-4" id="artikel" value={ergebnisText} onChange={(e) => setEingabeText(e.target.value)} ></textarea>
+                       {error && (
+                        <p className="text-red-500 text-xs mt-1">{error}</p>
+                       )}
                         
                         
                         
